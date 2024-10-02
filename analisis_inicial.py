@@ -14,27 +14,27 @@ def espacios ():
 # print(data_01.head())
 # data_01.to_csv('data_01_nuevo.csv')
 direccion_nuevo="data_01_nuevo.csv"
-data_01_nuevo = pd.read_csv(direccion_nuevo)
-print(data_01_nuevo.head())
-data_01_nuevo['date'] = pd.to_datetime(data_01_nuevo['date'])
-data_01_nuevo.set_index('date', inplace=True)
+data_01 = pd.read_csv(direccion_nuevo)
+print(data_01.head())
+data_01['date'] = pd.to_datetime(data_01['date'])
+data_01.set_index('date', inplace=True)
 
 
 # conn = sql.connect('data_01_nuevo.db')
 # data_01_nuevo.to_sql('data_01_nuevo', conn)
 # conn.close()
-print(data_01_nuevo.head())
+print(data_01.head())
 espacios()
-print(data_01_nuevo.info())
+print(data_01.info())
 espacios()
-print(data_01_nuevo.describe())
+print(data_01.describe())
 espacios()
 plt.figure(figsize=(12, 6))
-sns.heatmap(data_01_nuevo.corr(), annot=True, cmap='coolwarm')
+sns.heatmap(data_01.corr(), annot=True, cmap='coolwarm')
 plt.title('Correlación de variables')
 plt.show()
-columnas=data_01_nuevo.columns[0:-2]
-columnas_2=data_01_nuevo.columns[-2:]
+columnas=data_01.columns[0:-2]
+columnas_2=data_01.columns[-2:]
 
 # for col in columnas:
 #     for i in columnas_2:
