@@ -6,8 +6,10 @@ import sqlite3  as sql
 def espacios ():
     print("\n"*2)
 
-direccion_nuevo="data_01_nuevo.csv"
-data_01 = pd.read_csv(direccion_nuevo)
+# direccion_nuevo="data_01_nuevo.csv"
+# data_01 = pd.read_csv(direccion_nuevo)
+sql_connection = sql.connect('data_01_nuevo.db')
+data_01 = pd.read_sql_query("SELECT * FROM data_01_nuevo", sql_connection)
 # print(data_01.head())
 data_01['date'] = pd.to_datetime(data_01['date'])
 data_01.set_index('date', inplace=True)
